@@ -53,7 +53,78 @@
             </ul>
         </div>
     </section>
-    
+    <script>
+        current_bg = 1;
+        max_images = 3;
+        function hero_bg_fn(e, a, next) {
+            if (a == -1) {
+                if (next == "next") {
+                    if (current_bg == max_images) {
+                        current_bg = 1;
+                    } else {
+                        current_bg++;
+                    }
+                    a = current_bg;
+                }
+                if (next == "previous") {
+                    if (current_bg == 1) {
+                        current_bg = max_images;
+                    } else {
+                        current_bg--;
+                    }
+                    a = current_bg;
+                }
+            }
+            var hero = document.getElementsByClassName("hero");
+            hero[0].style.opacity = "0";
+            setTimeout(function () {
+                var hero = document.getElementsByClassName("hero");
+                hero[0].style.opacity = "1";
+                if (window.innerWidth < 600) {
+                    hero[0].style.backgroundImage = "url('/builds/production/images/bg/bg-mobile-" + a + ".jpg')";
+
+                } else {
+                    hero[0].style.backgroundImage = "url('/builds/production/images/bg/bg-" + a + ".jpg')";
+                }
+            }, 250);
+            var circle_icons = document.getElementsByClassName("circle-icons");
+            var h1_heading_text = document.getElementsByClassName("h1-heading-text");
+            var h1_strong_heading = document.getElementsByClassName("h1-strong-heading");
+            var h2_sub_text = document.getElementsByClassName("h2-sub-text");
+            for (var i = 0; i < circle_icons.length; i++) {
+                circle_icons[i].className = "circle-icons";
+                if (i == (a - 1)) {
+                    circle_icons[i].className = "circle-icons active";
+                    if (i == 0) {
+                        //hero[0].style.backgroundSize = "cover";
+                        //hero[0].style.backgroundPositionY = "1%";
+                        h2_sub_text[0].innerText = "Providing an in-home Medication Management Service";
+                        //h1_strong_heading[0].innerText = "";
+                        h1_heading_text[0].innerHTML = "HealthPlus<br> <strong class='h1-strong-heading'>HomeCare</strong> Program";
+                    } else if (i == 2) {
+                        //hero[0].style.backgroundPositionY = "73%";
+                        hero[0].style.backgroundSize = "cover";
+                        h2_sub_text[0].innerText = "Call us to book an appointment";
+                        h1_heading_text[0].innerHTML = "Get your <strong>Flu Shot</strong>";
+                    } else if (i == 1) {
+                        //hero[0].style.backgroundPositionY = "73%";
+                        //hero[0].style.backgroundPositionX = "68%";
+                        //hero[0].style.backgroundSize = "71%";
+                        h2_sub_text[0].innerText = "Providing a Free Prescription Delivery service to your home";
+                        //h1_strong_heading[0].innerText = "";
+                        h1_heading_text[0].innerHTML = "Free Prescription<br> <strong class='h1-strong-heading'>Delivery</strong>";
+                    }
+                }
+                current_bg = a;
+            }
+        }
+        image_slider = setInterval(function () {
+            hero_bg_fn(null, -1, "next");
+        }, 10000);
+        window.onload = function () {
+            image_slider();
+        }
+    </script>
 </body>
 
 </html>
