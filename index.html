@@ -1,1 +1,59 @@
+!
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+    <section class="hero position-relative" aria-roledescription="carousel"
+        style="opacity: 1; background-image: url(&quot;/builds/production/images/bg/bg-2.jpg&quot;); background-size: cover;">
+
+        <div class="wrapper">
+            <div class="cf">
+                <div class="span-3-of-4-tablet">
+                    <h1 class="thin h1-heading-text">Free Prescription<br> <strong
+                            class="h1-strong-heading">Delivery</strong></h1>
+                    <h2 class="h2-sub-text">Providing a Free Prescription Delivery service to your home</h2>
+                </div>
+            </div>
+
+        </div>
+        <div class="display-none-sm left-icon cursor-pointer" onclick="hero_bg_fn(this, -1, 'previous')">
+            <a>
+                <span></span>
+            </a>
+        </div>
+        <div class="display-none-sm right-icon cursor-pointer" onclick="hero_bg_fn(this, -1, 'next')">
+            <a>
+                <span></span>
+            </a>
+        </div>
+        <div class="circle-icons-container cf">
+            <ul class="no_padding_margin no_decor cf">
+                <li data-slide="1" onclick="hero_bg_fn(this,1)">
+                    <a>
+                        <span class="circle-icons"></span>
+                    </a>
+                </li>
+                <li data-slide="2" onclick="hero_bg_fn(this,2)">
+                    <a>
+                        <span class="circle-icons active"></span>
+                    </a>
+                </li>
+                <li data-slide="3" onclick="hero_bg_fn(this,3)">
+                    <a>
+                        <span class="circle-icons"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+</body>
+
+</html>
